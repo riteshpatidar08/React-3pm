@@ -1,0 +1,29 @@
+//React JS => library Javascript => for creating ui 
+
+//React js component based ?
+
+//vanills js 
+
+//NOTE React library  => 
+//NOTE next js => react framework
+//NOTE framework angular => 
+
+//React js => external package
+//Angular => routing inbuilt
+
+//state => redux toolkit
+//angular => rxJs 
+
+
+//REACT => Code prewritten 
+
+
+//React => code setup
+
+//NOTE REACT PROJECT SETUP
+//React => 
+
+create react app => webpack
+ vite✅ => babel 
+
+ //Node package manager it comes with (package library)
