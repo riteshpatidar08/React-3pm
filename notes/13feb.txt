@@ -1,0 +1,148 @@
+import React, { useState } from 'react';
+
+function App() {
+  const [firstName, setFirstName] = useState('ritesh');
+  // let firstname = 'ritesh' =>  'react'
+
+  const handleClick = (e) => {
+    // firstname = 'react'
+    setFirstName('react');
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleFocus = () => {
+    console.log('input focused');
+  };
+  const handleBlur = () => {
+    console.log('blurr trigger');
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        onChange={handleChange}
+      />
+      <button onClick={handleClick}>Click</button>
+      <h1>{firstName}</h1>
+      <h1>state</h1>
+    </div>
+  );
+}
+
+export default App;
+
+//JSX , COMPONENTS , PROPS , EVENT SYSTEM
+
+//hooks => useState
+
+//props change , jsx change or state change
+
+
+//state => data which changes in the future
+// stored in the state
+
+//form handling
+
+
+import React, { useState } from 'react';
+
+function App() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [data, setData] = useState({});
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    console.log(name);
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, email);
+    setData({name : name, email:email });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleFormSubmit}>
+        <label>Name</label>
+        <input
+          onChange={handleNameChange}
+          value={name}
+          type="text"
+          name="name"
+        />
+        <label>Email</label>
+        <input onChange={handleEmailChange} type="text" name="email" />
+        <button>Submit</button>
+      </form>
+
+      <h1>Form submitted values</h1>
+      <div>{JSON.stringify(data)}</div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+import React, { useState } from 'react';
+
+function App() {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+  });
+
+  const handleChange = (e) => {
+   const {name,value} = e.target
+   console.log(name.value)
+   setData({...data , [name]: value})
+  };
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(name, email);
+  //   setData({ name: name, email: email });
+  // };
+
+  return (
+    <div>
+      <form>
+        <label>Name</label>
+        <input
+          onChange={handleChange}
+        
+          type="text"
+          name="name"
+        />
+        <label>Email</label>
+        <input
+          onChange={handleChange}
+          type="text"
+          name="email"
+         
+        />
+        <button>Submit</button>
+      </form>
+
+      <h1>Form submitted values</h1>
+    <div>{data.name}</div>
+    <div>{data.email}</div>
+    </div>
+  );
+}
+
+export default App;

@@ -1,39 +1,27 @@
-import './App.css';
+import React from 'react';
 
 function App() {
-  const firstname = 'ritesh';
-  const styles = { color: 'red' };
+  const listOfPhone = ['Sangs25ultra', 'iphone 16', 'iphone 16 pro max'];
+ const handleClick = (item) => {
+const filteredItems = listOfPhone.filter((i)=> i !== item )
+
+ }
   return (
     <div>
-      <h1 style={styles}>{firstname}</h1>
-      <div className="heading">hello</div>
-      <input type="text" maxLength={5} />
-      <Button title="Register" />
-      <Button title="Login" />
-      <Button title="Submit" />
+      <ui>
+        {listOfPhone.map((item) => 
+          <>
+             <li key={item}>{item}</li>
+             <button onClick={()=>handleClick(item)}>Delete</button>
+             </>
+       
+
+        )}
+      </ui>
     </div>
   );
 }
 
-function Button(props) {
-  console.log(props);
-  console.log('instance created');
-  return <button>{props.title}</button>;
-}
-
 export default App;
 
-//react features=> components based architure
-//jsx
-//virtual dom
-//props => parent to child data share
-//one way data binding data share
-
-//inbuilt tag //attribute
-{
-  /* <input type='text'/> */
-}
-//components //props
-{
-  /* <Button type="text"/> */
-}
+//List rendering
