@@ -1,0 +1,108 @@
+import React from 'react';
+
+function App() {
+  const listOfPhone = ['Sangs25ultra', 'iphone 16', 'iphone 16 pro max'];
+  
+ const handleClick = (item) => {
+const filteredItems = listOfPhone.filter((i)=> i !== item )
+
+ }
+  return (
+    <div>
+      <ui>
+        {listOfPhone.map((item) => 
+          <>
+             <li key={item}>{item}</li>
+             <button onClick={()=>handleClick(item)}>Delete</button>
+             </>
+       
+
+        )}
+      </ui>
+    </div>
+  );
+}
+
+export default App;
+
+//List rendering
+
+
+import React from 'react';
+import { useEffect, useState } from 'react';
+function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/1')
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  }, []);
+
+  useEffect(() => {
+    console.log('runs everytime');
+    return () => {
+      console.log('log');
+    };
+  });
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/1')
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  }, [count]);
+  // document.title= 'Home'
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+export default App;
+
+// classComponent => mount , unmount , update
+
+
+import React from 'react'
+import Card from './components/Card'
+import { useContext } from 'react'
+import { DataContext } from './context/DataContext'
+function App() {
+const name = useContext(DataContext)
+
+
+  return (
+    <div>
+      <h1>{name}</h1>
+      <Card>
+      
+        <h1>eading</h1>
+        <p>fjdslkfjdsjflk</p>
+      </Card>
+    </div>
+  )
+}
+
+export default App
+
+
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  const [isEdit, setIsEdit] = useState('');
+  return (
+    <div>
+      <h1 className={`${isEdit ? 'text-red-500' : 'text-indigo-500'}`}>
+        Study
+      </h1>
+      <button onClick={() => setIsEdit(!isEdit)}>Edit</button>
+      {isEdit && <input />}
+    </div>
+  );
+}
+
+export default App;
+
